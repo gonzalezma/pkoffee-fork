@@ -126,6 +126,8 @@ def load_csv(filepath: Path) -> pd.DataFrame:
        cups  productivity
     0     1           2.1
     """
+    if isinstance(filepath, str):
+        filepath = Path(filepath)
     if not filepath.exists():
         raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), filepath)
 
