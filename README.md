@@ -92,4 +92,4 @@ jupyterlab
 
 MIT License
 
-[![Test Matrix](https://github.com/gonzalezma/pkoffee-fork/actions/workflows/test.yml/badge.svg)](https://github.com/gonzalezma/pkoffee-fork/actions/workflows/test.yml)
+[![Test Matrix](https://github.com/gonzalezma/pkoffee-fork/actions/workflows/test.yml/badge.svg?branch=gonzalezma-patch-1)](https://github.com/gonzalezma/pkoffee-fork/actions/workflows/test.yml)
