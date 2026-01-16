@@ -92,4 +92,4 @@ jupyterlab
 
 MIT License
 
-  ![[pkoffee status](https://github.com/gonzalezma/pkoffee-fork/actions/workflows/test.yaml/badge.svg)
+![[pkoffee status](https://github.com/gonzalezma/pkoffee-fork/actions/workflows/test.yaml/badge.svg)
