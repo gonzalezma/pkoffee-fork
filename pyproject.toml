@@ -30,3 +30,17 @@ classifiers = [
 
 [project.scripts]
 pkoffee = "pkoffee.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest",]
+
+[tool.pixi.feature.test.dependencies]
+pytest = "9.*"
+
+[tool.pixi.environments]
+default = { solve-group = "default" }
+test = { features = ["test"], solve-group = "default" }
+
+[tool.pixi.feature.test.tasks]
+test = "pytest"
+
