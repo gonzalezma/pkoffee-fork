@@ -14,3 +14,27 @@ jobs:
         uses: prefix-dev/setup-pixi@v0.9.3
         with:
           pixi-version: v0.62.2
+
+  unit-tests:
+    runs-on: ${{ matrix.os }}
+    needs: code-checks
+  
+    strategy:
+      fail-fast: false # stop all jobs if one fails
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+
+      steps:
+        - name: Checkout the code
+          uses: actions/checkout@v6
+
+        - name: Install pixi
+          uses: prefix-dev/setup-pixi@v0.9.3
+          with:
+            pixi-version: v0.62.2
+            environments: ${{ matrix.environment }}
+           
+        - run: pixi run -e ${{ matrix.environment }} pytest
