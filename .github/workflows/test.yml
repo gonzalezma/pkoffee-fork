@@ -27,8 +27,6 @@ jobs:
           - macos-latest
           - windows-latest
         environment:
-          - env-py312
-          - env-py313
           - env-py314
 
     steps:
