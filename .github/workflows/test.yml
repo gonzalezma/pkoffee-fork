@@ -6,7 +6,6 @@ jobs:
   code-checks:
     runs-on: ubuntu-latest
 
-
   steps:
     - name: Checkout the code
       uses: actions/checkout@v6
