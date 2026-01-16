@@ -66,6 +66,9 @@ prod = { features = ["py313"], solve-group = "prod" }
 # use default for the dev environment so tasks are resolved in this environment (avoids having to specify env)
 # no need to include doc: pixi will figure the environment to use from the task if it is unique
 default = { features = ["dev", "py313"], solve-group = "prod" }
+env-py312 = ["py312"]
+env-py313 = ["py313"]
+env-py314 = ["py314"]
 
 # python 3.14 environments for testing
 prod314 = { features = ["py314"], solve-group = "prod314" }
