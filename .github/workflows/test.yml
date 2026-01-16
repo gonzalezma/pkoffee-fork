@@ -1,0 +1,48 @@
+name: Test Matrix
+on: [push]
+
+jobs:
+
+  code-checks:
+    runs-on: ubuntu-latest
+
+
+  steps:
+    - name: Checkout the code
+      uses: actions/checkout@v6
+
+    - name: Install pixi
+      uses: prefix-dev/setup-pixi@v0.9.3
+      with:
+        pixi-version: v0.62.2
+
+    - name: look for syntax errors
+      run: pixi run ruff check
+      
+unit-tests:
+  runs-on: ${{ matrix.os }}
+  needs: code-checks
+  
+  strategy:
+    fail-fast: false # stop all jobs if one fails
+    matrix:
+      os:
+        - ubuntu-latest
+        - macos-latest
+        - windows-latest
+      environment:
+        - default
+        - env-py313
+        - env-py312
+
+    steps:
+       - name: Checkout the code
+         uses: actions/checkout@v6
+
+       - name: Install pixi
+         uses: prefix-dev/setup-pixi@v0.9.3
+         with:
+           pixi-version: v0.62.2
+           environments: ${{ matrix.environment }}
+           
+       - run: pixi run -e ${{ matrix.environment }} pytest
